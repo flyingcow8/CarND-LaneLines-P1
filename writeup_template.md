@@ -1,35 +1,25 @@
 # **Finding Lane Lines on the Road** 
-
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
+##ZHAN YUAN,  tigger-zy@163.com
 ---
+### 1. The steps of finding lane lines in a image
 
-**Finding Lane Lines on the Road**
+For  the program, the input is a 940*540 jpeg image. The output is a copy of this image which is drawed the left line and the right line of the current lane. 
 
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
+```flow
+st=>start
+read=>operation: Read the original RGB image
+gray=>operation: Grayscale convert
+gaussian=>operation: Gaussian smoothing handling
+canny=>operation: Canny edge convert
+roi=>operation: Get the region of current lane
+hough=>operation: Hough lines convert
+combine=>operation: Combine lane lines with original image
+save=>operation: Save the result as a new file
+e=>end
+st->read->gray->gaussian->canny->roi->hough->combine->save->e
+```
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
-
----
-
-### Reflection
-
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
-
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
 
 
 ### 2. Identify potential shortcomings with your current pipeline
